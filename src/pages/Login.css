@@ -1,0 +1,18 @@
+.container {
+}
+
+.loginbgContainer {
+  background-image: url("../images/login.webp");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.loginForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* #loginbgcolor {
+  background: #bae6fd;
+} */

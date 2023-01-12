@@ -1,0 +1,24 @@
+/* * {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.container {
+}
+
+.signupbgContainer {
+  background-image: url("../images/sign-up-page.webp");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.signupForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.signupForm {
+}
