@@ -1,10 +1,3 @@
-// import React from "react";
-
-// const SignUp = () => {
-//   return <div>SignUp</div>;
-// };
-
-// export default SignUp;
 import React, { useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
@@ -15,21 +8,30 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { Link } from "react-router-dom";
 import "./SignUp.css";
 import axios from "axios";
+import { useSignupUserMutation } from "../services/appAPI";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [signupUser, { isLoading, data }] = useSignupUserMutation();
+  //handle Login
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   signupUser({ email, password });
   //handle Login
   const handleSignUp = (e) => {
     console.log(email);
     console.log(password);
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/users", { email, password })
-      .then((res) => console.log(res.data))
-      .catch((error) => console.log(error));
+    signupUser({ email, password });
+    // axios
+    //   .post("http://localhost:3000/users", { email, password })
+    //   .then((res) => console.log(res.data))
+    //   .catch((error) => console.log(error));
   };
+  if (data) {
+    console.log(data);
+  }
 
   return (
     <Container>
@@ -73,7 +75,7 @@ const SignUp = () => {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-              Login
+              SignUp
             </Button>
             <div>
               <p className="text-center">

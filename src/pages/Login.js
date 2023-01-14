@@ -7,18 +7,25 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+import { useLoginUserMutation } from "../services/appAPI";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //handle Login
+  const [loginUser, { isLoading, data }] = useLoginUserMutation();
   const handleLogin = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/users/login", { email, password })
-      .then(({ data }) => console.log(data))
-      .catch((err) => console.log(err.message));
+
+    loginUser({ email, password });
+    //   axios
+    //     .post("http://localhost:3000/users/login", { email, password })
+    //     .then(({ data }) => console.log(data))
+    //     .catch((err) => console.log(err.message));
   };
+  if (data) {
+    console.log(data);
+  }
 
   return (
     <Container>
