@@ -21,6 +21,7 @@ import SingleArticlePage from "./pages/SingleArticlePage";
 import NotFound from "./pages/NotFound";
 function App() {
   const { user } = useSelector((state) => state.user);
+  console.log(user);
   return (
     <BrowserRouter>
       <Navigation />

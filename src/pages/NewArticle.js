@@ -12,11 +12,11 @@ import "./NewArticle.css";
 import { useNavigate } from "react-router-dom";
 
 const NewArticle = () => {
-  //appAPI
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [uploadingImage, setUpLoadingImage] = useState(false);
+  //appAPI
   const [createPost, { isLoading, isSuccess }] = useCreatePostMutation();
   const navigate = useNavigate();
   const [editorState, setEditorState] = useState(() =>

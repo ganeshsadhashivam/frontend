@@ -3,8 +3,8 @@ import { useGetAllUserPostsQuery } from "../services/appAPI";
 import { Spinner, Container, Row, Col } from "react-bootstrap";
 import ArticlePreview from "../components/ArticlePreview";
 const MyArticles = () => {
-  const { data: userArticles, isLoading, isError } = useGetAllUserPostsQuery();
-  console.log(userArticles, isLoading, isError);
+  const { data: userarticles, isLoading, isError } = useGetAllUserPostsQuery();
+  console.log(userarticles, isLoading, isError);
   if (isError) {
     return (
       <div>
@@ -20,8 +20,8 @@ const MyArticles = () => {
       </div>
     );
   }
-  console.log(userArticles.length === 0);
-  if (userArticles.length === 0) {
+  console.log(userarticles.length === 0);
+  if (userarticles.length === 0) {
     return (
       <div>
         <h1 className="text-center">You Don't have Articles Yet</h1>
@@ -34,8 +34,12 @@ const MyArticles = () => {
       <h1 className="text-center">My Articles</h1>
       <Row>
         <Col md={9} className="d-flex justify-content-center flex-wrap gap-4">
-          {userArticles.map((articles, index) => (
-            <ArticlePreview key={index} article={articles} />
+          {userarticles.map((article, index) => (
+            <ArticlePreview
+              key={index}
+              article={article}
+              currentUserPost={true}
+            />
           ))}
         </Col>
       </Row>

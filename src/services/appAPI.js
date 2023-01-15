@@ -23,6 +23,7 @@ export const appAPI = createApi({
         body: user,
       }),
     }),
+
     loginUser: builder.mutation({
       query: (user) => ({
         url: "/users/login",
@@ -30,12 +31,14 @@ export const appAPI = createApi({
         body: user,
       }),
     }),
+
     logoutUser: builder.mutation({
       query: () => ({
         url: "/users/logout",
         method: "DELETE",
       }),
     }),
+
     //POST Routes
     createPost: builder.mutation({
       query: (article) => ({
@@ -45,6 +48,7 @@ export const appAPI = createApi({
       }),
       invalidatesTags: ["Post"],
     }),
+
     //GET Posts
     getAllPosts: builder.query({
       query: () => ({
@@ -58,15 +62,24 @@ export const appAPI = createApi({
       query: (id) => ({
         url: `/posts/${id}`,
       }),
-      // providesTags: ["Post"],
+      providesTags: ["Post"],
     }),
+
     //Getting All of of a user
     getAllUserPosts: builder.query({
       query: () => ({
         url: "/posts/me",
       }),
+      providesTags: ["Post"],
     }),
-    providesTags: ["Post"],
+
+    deletePosts: builder.mutation({
+      query: (id) => ({
+        url: `/posts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Post"],
+    }),
   }),
 });
 
@@ -80,6 +93,7 @@ export const {
   useGetAllPostsQuery,
   useGetOnePostQuery,
   useGetAllUserPostsQuery,
+  useDeletePostsMutation,
 } = appAPI;
 
 export default appAPI;
