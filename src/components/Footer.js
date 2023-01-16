@@ -5,7 +5,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
   console.log(year);
   return (
-    <footer className="   text-center">
+    <footer className="text-center mt-1">
       <h6> ©️CopyRights {year} By GaneshSadhashivam ❤️ DEVSNEST</h6>
       <a href="https://twitter.com/WhenTheyNeedYou" target={"_blank"}>
         <FaTwitter

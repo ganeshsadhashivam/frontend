@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <Container>
       <div className="banner">
-        <h1 className="banner-title text-center">Blog's</h1>
+        <h1 className="banner-title text-center mt-1">Blog's</h1>
       </div>
       <Row>
         <MainArticle article={articles[articles.length - 1]} />
