@@ -80,6 +80,15 @@ export const appAPI = createApi({
       }),
       invalidatesTags: ["Post"],
     }),
+
+    updatePosts: builder.mutation({
+      query: ({ id, ...post }) => ({
+        url: `posts/${id}`,
+        method: "PATCH",
+        body: post,
+      }),
+      invalidatesTags: ["Post"],
+    }),
   }),
 });
 
@@ -94,6 +103,7 @@ export const {
   useGetOnePostQuery,
   useGetAllUserPostsQuery,
   useDeletePostsMutation,
+  useUpdatePostsMutation,
 } = appAPI;
 
 export default appAPI;

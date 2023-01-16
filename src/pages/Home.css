@@ -1,0 +1,18 @@
+.main-article-image-container .col {
+  background-color: #bae6fd;
+}
+
+.col-md-6 {
+  background: #bae6fd;
+}
+
+.blog-main {
+  background: #bae6fd;
+  border-radius: 0.1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin-top: 1rem;
+}

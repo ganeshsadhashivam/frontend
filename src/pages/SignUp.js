@@ -5,15 +5,18 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import axios from "axios";
 import { useSignupUserMutation } from "../services/appAPI";
+
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signupUser, { isLoading, data }] = useSignupUserMutation();
+  const [signupUser, { isLoading, data, isError, error }] =
+    useSignupUserMutation();
+  const navigate = useNavigate();
   //handle Login
   // const handleLogin = (e) => {
   //   e.preventDefault();
@@ -23,7 +26,11 @@ const SignUp = () => {
     console.log(email);
     console.log(password);
     e.preventDefault();
-    signupUser({ email, password });
+    signupUser({ email, password }).then(({ error }) => {
+      if (!error) {
+        navigate("/");
+      }
+    });
     // axios
     //   .post("http://localhost:3000/users", { email, password })
     //   .then((res) => console.log(res.data))
@@ -43,6 +50,9 @@ const SignUp = () => {
         >
           <Form className="signupform" onSubmit={handleSignUp}>
             <h1 className="text-center">Create Account</h1>
+            {isError && (
+              <p className="alert alert-danger text-center">{error.data}</p>
+            )}
             {/* <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -74,7 +84,7 @@ const SignUp = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" disabled={isLoading}>
               SignUp
             </Button>
             <div>

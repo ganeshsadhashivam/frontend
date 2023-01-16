@@ -1,0 +1,58 @@
+nav {
+  background-color: black;
+  color: white;
+  height: 10rem;
+}
+
+/* .navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+  color: white !important;
+  margin-top: -1rem;
+} */
+
+/* .nav-link.active {
+  color: white !important;
+  margin-top: -1rem;
+} */
+
+nav img {
+  width: 25%;
+}
+
+button {
+  color: white !important;
+  border: 2px solid white !important;
+}
+
+/* #basic-navbar-nav {
+  margin-top: -1rem;
+  color: black;
+} */
+
+.navbar-toggler .collapsed {
+  background: white !important;
+  color: white !important;
+}
+
+.navbar-toggler span {
+  /* color: white !important; */
+  background-color: white !important;
+}
+
+/* navbar-toggler-icon {
+  color: white !important;
+}
+
+navbar-toggler-icon {
+  background: white !important;
+  color: white !important;
+} */
+
+@media screen and (min-width: 992px) {
+  #basic-navbar-nav {
+    margin: -1rem !important;
+  }
+  .ms-auto navbar-nav {
+    margin-top: -1rem !important;
+  }
+}

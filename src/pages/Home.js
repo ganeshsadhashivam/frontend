@@ -7,7 +7,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import MainArticle from "../components/MainArticle";
 import ArticlePreview from "../components/ArticlePreview";
 import { LinkContainer } from "react-router-bootstrap";
-
+import "./Home.css";
 const Home = () => {
   const { data: articles, isLoading, isError } = useGetAllPostsQuery();
   console.log(articles);

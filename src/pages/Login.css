@@ -1,6 +1,3 @@
-.container {
-}
-
 .loginbgContainer {
   background-image: url("../images/login.webp");
   background-size: cover;
@@ -16,3 +13,10 @@
 /* #loginbgcolor {
   background: #bae6fd;
 } */
+
+.nav-link {
+  color: white !important;
+  /* padding: 0.1rem !important;
+  margin: 0.1rem !important;
+  border: 0.1rem !important; */
+}

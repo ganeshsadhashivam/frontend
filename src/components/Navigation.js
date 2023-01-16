@@ -4,10 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
-import Logo from "../images/WTNYLOGO.png";
+import Logo from "../images/WTNY (1).png";
 import { useSelector } from "react-redux";
 import { useLogoutUserMutation } from "../services/appAPI";
-
+import "./Navigation.css";
 function Navigation() {
   const { user } = useSelector((state) => state.user);
   const [logoutUser, { isLoading }] = useLogoutUserMutation();
@@ -24,7 +24,7 @@ function Navigation() {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar id="navbar" bg="" expand="lg">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
@@ -36,9 +36,12 @@ function Navigation() {
           <Nav className="ms-auto">
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
+              {/* <Nav.Link>
+                <Button className="btn btn-primary text-white">Home</Button>
+              </Nav.Link> */}
             </LinkContainer>
             <LinkContainer to="/login">
-              <Nav.Link className="btn btn-primary text-white">Login</Nav.Link>
+              <Nav.Link className="btn btn-primary">Login</Nav.Link>
             </LinkContainer>
             {user && (
               <NavDropdown title={user.email} id="basic-nav-dropdown">

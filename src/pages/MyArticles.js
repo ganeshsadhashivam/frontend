@@ -2,8 +2,11 @@ import React from "react";
 import { useGetAllUserPostsQuery } from "../services/appAPI";
 import { Spinner, Container, Row, Col } from "react-bootstrap";
 import ArticlePreview from "../components/ArticlePreview";
+import { useNavigate } from "react-router-dom";
+
 const MyArticles = () => {
   const { data: userarticles, isLoading, isError } = useGetAllUserPostsQuery();
+  const navigate = useNavigate();
   console.log(userarticles, isLoading, isError);
   if (isError) {
     return (
