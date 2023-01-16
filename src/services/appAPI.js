@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const appAPI = createApi({
   reducerPath: "appAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://backendformernblog.vercel.app/posts/",
+    baseUrl: "https://backendformernblog.vercel.app/posts/",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.token;
       console.log("appAPI:", token);
